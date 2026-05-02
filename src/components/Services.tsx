@@ -89,9 +89,9 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 smooth-transition group cursor-pointer"
+              className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 smooth-transition group cursor-pointer"
             >
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${service.bg} ${service.color} group-hover:scale-110 smooth-transition`}>
+              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 ${service.bg} ${service.color} group-hover:scale-110 smooth-transition`}>
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-health-blue smooth-transition">
@@ -107,8 +107,8 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <a href="#services-full" className="inline-flex items-center justify-center gap-2 bg-white text-slate-900 border border-slate-200 px-8 py-3 rounded-full font-semibold hover:border-health-blue hover:text-health-blue shadow-sm hover:shadow-md smooth-transition">
+        <div className="mt-12 sm:mt-16 text-center">
+          <a href="#services-full" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-white text-slate-900 border border-slate-200 px-8 py-3 rounded-full font-semibold hover:border-health-blue hover:text-health-blue shadow-sm hover:shadow-md smooth-transition">
             View All Services
           </a>
         </div>

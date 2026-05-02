@@ -113,6 +113,7 @@ const AdminLayout = () => {
                 key={item.name}
                 to={item.path}
                 end={item.path === '/admin'}
+                onClick={() => setMobileSidebarOpen(false)}
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group relative ${
                     isActive 

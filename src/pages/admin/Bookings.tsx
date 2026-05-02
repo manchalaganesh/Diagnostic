@@ -73,8 +73,8 @@ const Bookings = () => {
 
         {/* Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse min-w-[800px]">
-            <thead>
+          <table className="w-full text-left border-collapse block md:table">
+            <thead className="hidden md:table-header-group">
               <tr className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-800">
                 <th className="px-6 py-4 font-semibold">Booking ID</th>
                 <th className="px-6 py-4 font-semibold">Patient Name</th>
@@ -85,26 +85,41 @@ const Bookings = () => {
                 <th className="px-6 py-4 font-semibold text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50 text-sm">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50 text-sm block md:table-row-group">
               {bookingsData.map((booking, i) => (
-                <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-                  <td className="px-6 py-4 font-medium text-health-blue">{booking.id}</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center gap-3">
+                <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group block md:table-row bg-white dark:bg-slate-900 mb-4 md:mb-0 p-4 md:p-0 rounded-xl md:rounded-none border border-slate-100 dark:border-slate-800 md:border-none shadow-sm md:shadow-none mx-4 md:mx-0 mt-4 md:mt-0">
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center border-b border-slate-50 md:border-none dark:border-slate-800/50 md:dark:border-none pb-3 md:pb-4 mb-2 md:mb-0 font-medium text-health-blue">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Booking ID</span>
+                    {booking.id}
+                  </td>
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center text-right md:text-left">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Patient Name</span>
+                    <div className="flex items-center gap-3 justify-end md:justify-start">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-slate-700 dark:to-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-200 font-bold text-xs shadow-sm">
                         {booking.avatar}
                       </div>
                       <span className="font-semibold text-slate-900 dark:text-white">{booking.name}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-slate-600 dark:text-slate-300 font-medium">{booking.test}</td>
-                  <td className="px-6 py-4 text-slate-500 dark:text-slate-400">{booking.date}</td>
-                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">{booking.amount}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center text-slate-600 dark:text-slate-300 font-medium">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Test Details</span>
+                    {booking.test}
+                  </td>
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center text-slate-500 dark:text-slate-400">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Date & Time</span>
+                    {booking.date}
+                  </td>
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center font-medium text-slate-900 dark:text-white">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Amount</span>
+                    {booking.amount}
+                  </td>
+                  <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Status</span>
                     {getStatusBadge(booking.status)}
                   </td>
-                  <td className="px-6 py-4 text-right">
-                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <td className="px-0 md:px-6 py-3 md:py-4 flex md:table-cell justify-between md:justify-end items-center mt-2 md:mt-0 border-t border-slate-50 md:border-none dark:border-slate-800/50 md:dark:border-none pt-3 md:pt-4 text-right">
+                    <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Actions</span>
+                    <div className="flex items-center justify-end gap-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                       <button 
                         onClick={() => handleWhatsApp(booking.phone, booking.name)}
                         className="p-1.5 text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 rounded-lg transition-colors"

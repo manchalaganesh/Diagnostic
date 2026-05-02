@@ -17,40 +17,40 @@ const Hero = () => {
               Trusted by 10,000+ Patients
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
               Accurate Diagnostics for <span className="text-health-blue">Better Health</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
               Fast, Reliable & Affordable Medical Testing Services. Get your health checked with state-of-the-art technology and experienced medical professionals.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#book" className="flex items-center justify-center gap-2 bg-health-blue text-white px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-health-blue/90 shadow-lg hover:shadow-xl hover:-translate-y-1 smooth-transition">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full max-w-md mx-auto lg:mx-0">
+              <a href="#book" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-health-blue text-white px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-health-blue/90 shadow-lg hover:shadow-xl hover:-translate-y-1 smooth-transition">
                 Book Appointment
                 <ArrowRight size={20} />
               </a>
               
-              <a href="#reports" className="flex items-center justify-center gap-2 bg-white text-health-blue border-2 border-health-blue/20 px-8 py-3.5 rounded-full font-semibold text-lg hover:border-health-blue hover:bg-slate-50 shadow-md hover:shadow-lg hover:-translate-y-1 smooth-transition">
+              <a href="#reports" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white text-health-blue border-2 border-health-blue/20 px-8 py-3.5 rounded-full font-semibold text-lg hover:border-health-blue hover:bg-slate-50 shadow-md hover:shadow-lg hover:-translate-y-1 smooth-transition">
                 <FileText size={20} />
                 View Reports
               </a>
             </div>
             
-            <div className="mt-10 flex items-center justify-center lg:justify-start gap-8">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-slate-900">24h</span>
-                <span className="text-sm text-slate-500 font-medium">Report Delivery</span>
+            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8">
+              <div className="flex flex-col items-center sm:items-start w-1/3 sm:w-auto">
+                <span className="text-2xl sm:text-3xl font-bold text-slate-900">24h</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium text-center sm:text-left">Report Delivery</span>
               </div>
-              <div className="w-px h-12 bg-slate-200"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-slate-900">50+</span>
-                <span className="text-sm text-slate-500 font-medium">Tests Available</span>
+              <div className="hidden sm:block w-px h-12 bg-slate-200"></div>
+              <div className="flex flex-col items-center sm:items-start w-1/3 sm:w-auto">
+                <span className="text-2xl sm:text-3xl font-bold text-slate-900">50+</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium text-center sm:text-left">Tests</span>
               </div>
-              <div className="w-px h-12 bg-slate-200"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-slate-900">99%</span>
-                <span className="text-sm text-slate-500 font-medium">Accuracy</span>
+              <div className="hidden sm:block w-px h-12 bg-slate-200"></div>
+              <div className="flex flex-col items-center sm:items-start w-1/3 sm:w-auto">
+                <span className="text-2xl sm:text-3xl font-bold text-slate-900">99%</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium text-center sm:text-left">Accuracy</span>
               </div>
             </div>
           </div>
@@ -67,13 +67,13 @@ const Hero = () => {
             </div>
             
             {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 animate-bounce" style={{animationDuration: '3s'}}>
-              <div className="bg-health-green/10 p-3 rounded-full text-health-green">
-                <Activity size={24} />
+            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white p-3 sm:p-4 rounded-xl shadow-xl flex items-center gap-3 sm:gap-4 animate-bounce" style={{animationDuration: '3s'}}>
+              <div className="bg-health-green/10 p-2 sm:p-3 rounded-full text-health-green">
+                <Activity className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="text-sm text-slate-500 font-medium">Home Collection</p>
-                <p className="text-lg font-bold text-slate-900">Available Now</p>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium">Home Collection</p>
+                <p className="text-base sm:text-lg font-bold text-slate-900">Available Now</p>
               </div>
             </div>
           </div>

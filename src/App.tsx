@@ -12,15 +12,17 @@ import Settings from './pages/admin/Settings';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import MobileBottomBar from './components/MobileBottomBar';
 
 function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
         <BrowserRouter>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<LandingPage />} />
+          <MobileBottomBar />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           
           {/* Protected Admin Routes */}

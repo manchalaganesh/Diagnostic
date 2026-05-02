@@ -109,7 +109,7 @@ const Dashboard = () => {
       </div>
 
       {/* Premium Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, i) => (
           <motion.div 
             key={i} 
@@ -169,20 +169,22 @@ const Dashboard = () => {
               <option>This Year</option>
             </select>
           </div>
-          <div className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={revenueData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? '#1e293b' : '#f1f5f9'} />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 12 }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 12 }} tickFormatter={(value: any) => `₹${value/1000}k`} />
-                <RechartsTooltip 
-                  contentStyle={{ backgroundColor: isDarkMode ? '#0f172a' : '#fff', borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                  itemStyle={{ color: '#3b82f6', fontWeight: 'bold' }}
-                  formatter={(value: any) => [`₹${value}`, 'Revenue']}
-                />
-                <Line type="monotone" dataKey="revenue" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="overflow-x-auto pb-2 custom-scrollbar">
+            <div className="min-w-[600px] h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={revenueData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? '#1e293b' : '#f1f5f9'} />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 12 }} dy={10} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 12 }} tickFormatter={(value: any) => `₹${value/1000}k`} />
+                  <RechartsTooltip 
+                    contentStyle={{ backgroundColor: isDarkMode ? '#0f172a' : '#fff', borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                    itemStyle={{ color: '#3b82f6', fontWeight: 'bold' }}
+                    formatter={(value: any) => [`₹${value}`, 'Revenue']}
+                  />
+                  <Line type="monotone" dataKey="revenue" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </motion.div>
 
@@ -236,8 +238,8 @@ const Dashboard = () => {
             </button>
           </div>
           <div className="overflow-x-auto flex-1">
-            <table className="w-full text-left border-collapse min-w-[600px]">
-              <thead>
+            <table className="w-full text-left border-collapse block md:table">
+              <thead className="hidden md:table-header-group">
                 <tr className="bg-slate-50/50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
                   <th className="px-6 py-4 font-semibold">Patient</th>
                   <th className="px-6 py-4 font-semibold">Test Type</th>
@@ -246,27 +248,36 @@ const Dashboard = () => {
                   <th className="px-6 py-4 font-semibold text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50 text-sm">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50 text-sm block md:table-row-group">
                 {recentBookings.map((booking, i) => (
-                  <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-                    <td className="px-6 py-4">
+                  <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group block md:table-row bg-white dark:bg-slate-900 mb-4 md:mb-0 p-4 md:p-0 rounded-xl md:rounded-none border border-slate-100 dark:border-slate-800 md:border-none shadow-sm md:shadow-none mx-4 md:mx-0 mt-4 md:mt-0">
+                    <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center border-b border-slate-50 md:border-none dark:border-slate-800/50 md:dark:border-none pb-3 md:pb-4 mb-2 md:mb-0">
+                      <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Patient</span>
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-slate-700 dark:to-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-200 font-bold text-xs shadow-sm">
                           {booking.avatar}
                         </div>
-                        <div>
+                        <div className="text-right md:text-left">
                           <p className="font-semibold text-slate-900 dark:text-white">{booking.name}</p>
                           <p className="text-xs text-slate-500 dark:text-slate-400">{booking.id}</p>
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300 font-medium">{booking.test}</td>
-                    <td className="px-6 py-4 text-slate-500 dark:text-slate-400">{booking.date}</td>
-                    <td className="px-6 py-4">
+                    <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center text-slate-600 dark:text-slate-300 font-medium">
+                      <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Test Type</span>
+                      {booking.test}
+                    </td>
+                    <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center text-slate-500 dark:text-slate-400">
+                      <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Date & Time</span>
+                      {booking.date}
+                    </td>
+                    <td className="px-0 md:px-6 py-2 md:py-4 flex md:table-cell justify-between items-center">
+                      <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Status</span>
                       {getStatusBadge(booking.status)}
                     </td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <td className="px-0 md:px-6 py-3 md:py-4 flex md:table-cell justify-between md:justify-end items-center mt-2 md:mt-0 border-t border-slate-50 md:border-none dark:border-slate-800/50 md:dark:border-none pt-3 md:pt-4 text-right">
+                      <span className="md:hidden text-xs font-bold text-slate-500 uppercase">Actions</span>
+                      <div className="flex items-center justify-end gap-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                         <button 
                           onClick={() => handleWhatsApp(booking.phone, booking.name)}
                           className="p-1.5 text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 rounded-lg transition-colors tooltip-trigger relative"

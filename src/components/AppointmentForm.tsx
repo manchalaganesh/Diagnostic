@@ -69,7 +69,7 @@ Please confirm my appointment.`;
   return (
     <section id="book" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           <div>
             <div className="inline-block px-4 py-1.5 rounded-full bg-health-blue/10 text-health-blue font-semibold text-sm mb-4">
@@ -107,7 +107,7 @@ Please confirm my appointment.`;
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
+          <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Book Online</h3>
             
             {isSubmitted ? (
@@ -232,7 +232,7 @@ Please confirm my appointment.`;
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full flex justify-center items-center gap-2 bg-health-blue text-white py-4 rounded-xl font-bold text-lg hover:bg-health-blue/90 shadow-md hover:shadow-lg smooth-transition disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full flex justify-center items-center gap-2 bg-health-blue text-white py-4 rounded-xl font-bold text-lg hover:bg-health-blue/90 shadow-md hover:shadow-lg active:scale-[0.98] smooth-transition disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
