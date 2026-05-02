@@ -28,7 +28,7 @@ const LandingPage = () => {
       <Footer />
       
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+      <div className="hidden md:flex fixed bottom-6 right-6 z-50 flex-col gap-4">
         <a 
           href="https://wa.me/918019426972" 
           target="_blank" 
